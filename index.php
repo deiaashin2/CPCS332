@@ -23,7 +23,7 @@
                 <input type="text" name="password"/>
             </label>
             <p class="forgot-pass">Forgot password?</p>
-            <button>Sign In</button>
+            <button type="submit" class="submit">Sign in</button>
 </form>
         </div>
         <div class="sub-cont">
@@ -64,7 +64,7 @@
                     <span>Password</span>
                     <input type="text" name="password" placeholder="">
                 </label>
-                <button>Sign Up</button>
+                <button type="submit" class="submit">Sign Up</button>
                 <form>
 
             </div>
