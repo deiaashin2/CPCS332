@@ -23,15 +23,13 @@ $sql = "SELECT * FROM user_ WHERE e_mail = '$e_mail' AND password = '$password'"
 // Execute the query
 $result = $mysqli->query($sql);
 
-// Check if any rows were returned
 if ($result->num_rows > 0) {
-    // Email and password combination exists in the database
+    session_start();
+    $_SESSION['e_mail'] = $e_mail;
     echo "Login successful!";
-    header("location: http://localhost/CPCS332/accountpage.php");
+    header("location: http://localhost/AEMpage/accountpage.php");
 } else {
-    // Email and password combination does not exist in the database
-    echo "Invalid email or password.";
+    echo "Invalid email or password." . $mysqli->connect_error;
     header("location: http://localhost/CPCS332/");
 }
-
 ?>
