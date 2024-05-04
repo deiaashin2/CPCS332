@@ -16,7 +16,8 @@
     <div class="cont">
         <div class="form sign-in">
             <h2>Create Event</h2>
-            <form action="eventback.php" method="post">
+
+            <form    action="eventback.php" method="post">
                 <label>
                     <span>Event Name</span>
                     <input type="text" name="e_name" placeholder="">
