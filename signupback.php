@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if ($result->num_rows > 0) {
             // Email and password combination exists in the database
-            header("location: http://localhost/AEMpage/");
+            header("location: http://localhost/CPCS332/");
         } 
         //if not found in db then insert
         else {
@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //check update
             if($isInserted) {
                 //if success redirect to index
-                header("location: http://localhost/AEMpage/index.php");
+                header("location: http://localhost/CPCS332/index.php");
           } else {
                 // UPDATE failed
                 echo $mysqli->error();

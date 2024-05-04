@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //check update
         if($isInserted) {
             //if success redirect to index
-            header("Location: http://localhost/AEMpage/accountpage.php");
+            header("Location: http://localhost/CPCS332/accountpage.php");
           } else {
             // UPDATE failed
             echo $mysqli->error();

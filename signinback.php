@@ -24,11 +24,11 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // Email and password combination exists in the database
     echo "Login successful!";
-    header("location: http://localhost/AEMpage/accountpage.php");
+    header("location: http://localhost/CPCS332/accountpage.php");
 } else {
     // Email and password combination does not exist in the database
     echo "Invalid email or password.";
-    header("location: http://localhost/AEMpage/");
+    header("location: http://localhost/CPCS332/");
 }
 
 // Close database connection
