@@ -24,8 +24,7 @@
                 </label>
                 <label>
                     <span>Description</span>
-                    <textarea rows="10" cols="30" type="text" name="description" placeholder="">
-                </textarea>
+                    <textarea rows="10" cols="30" type="text" name="description" placeholder=""></textarea>
                 </label>
                 <label>
                     <span>Max Capacity</span>
@@ -33,8 +32,7 @@
                 </label>
                 <label>
                     <span>Address</span>
-                    <textarea rows="5" cols="30" type="text" name="address" placeholder="">
-                </textarea>
+                    <textarea rows="5" cols="30" type="text" name="address" placeholder=""></textarea>
                 </label>
                 <label>
                     <span>Event Type</span>
@@ -42,11 +40,11 @@
                 </label>
                 <label>
                     <span>Event Start Date & Time</span>
-                    <input type="text" name="e_type" placeholder="">
+                    <input type="text" name="s_date_time" placeholder="">
                 </label>
                 <label>
                     <span>Event Type</span>
-                    <input type="text" name="e_type" placeholder="">
+                    <input type="text" name="e_date_time" placeholder="">
                 </label>
                 <button type="submit" class="submit">Create Event</button>
             </form>

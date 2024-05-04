@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   session_start();
   if (isset($_SESSION['e_mail'])) {
-    echo "Your session is running " . $_SESSION['e_mail'];
+    echo "Your session is running " . $_SESSION['e_mail'] = $e_mail;
   }
 
   $query = "insert into event_(e_name, description, max_capacity, 

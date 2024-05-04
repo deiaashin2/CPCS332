@@ -27,9 +27,11 @@ if ($result->num_rows > 0) {
     session_start();
     $_SESSION['e_mail'] = $e_mail;
     echo "Login successful!";
-    header("location: http://localhost/AEMpage/accountpage.php");
-} else {
-    echo "Invalid email or password." . $mysqli->connect_error;
+    header("location: http://localhost/CPCS332/event.php");
+}
+else
+{
+    echo "Invalid email or password." . $mysqli -> connect_error;
     header("location: http://localhost/CPCS332/");
 }
 ?>
