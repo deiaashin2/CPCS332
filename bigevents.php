@@ -48,6 +48,29 @@
     <h1>Hello, World!</h1>
     <p>This is a basic PHP boilerplate.</p>
 
+
+    <table>
+        <thead>
+            <tr>
+                <?php
+                foreach ($headers as $h) {
+                    echo '<th>' . $h . '</th>';
+                }
+                ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($rows as $r) {
+                echo '<tr>';
+                foreach ($headers as $h) {
+                    echo '<td>' . $r[$h] . '</td>';
+                }
+                echo '</tr>';
+            }
+            ?>
+    </table>
+
     <!-- Add your JavaScript scripts or other content here -->
 
     <?php
