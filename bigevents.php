@@ -22,10 +22,12 @@
 
     if ($result = $mysqli->query($query)) {
 
+        /* Collects headers into an array */
         while ($header = $result->fetch_field()) {
             $headers[] = $header->name;
         }
 
+        /* Collects rows into an array */
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
@@ -54,6 +56,7 @@
         <thead>
             <tr>
                 <?php
+                /* Loops through headers array and prints them as table headers */
                 foreach ($headers as $h) {
                     echo '<th>' . $h . '</th>';
                 }
@@ -62,6 +65,7 @@
         </thead>
         <tbody>
             <?php
+            /* Loops through rows array and prints them as table rows */
             foreach ($rows as $r) {
                 echo '<tr>';
                 foreach ($headers as $h) {
