@@ -19,21 +19,20 @@
 
     $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, num_rows FROM event_ e JOIN ( SELECT ae_id, COUNT(*) AS num_rows FROM attendee GROUP BY ae_id HAVING num_rows > 100) a ON e.e_id = a.ae_id WHERE 1;";
 
-    echo "<b> <center>Database Output</center> </b> <br> <br>";
-
     if ($result = $mysqli->query($query)) {
 
         while ($row = $result->fetch_assoc()) {
-            $field1name = $row["e_name"];
-            $field2name = $row["description"];
-            $field3name = $row["max_capacity"];
-            $field4name = $row["address"];
-            $field5name = $row["e_type"];
 
-            echo '<b>' . $field1name . $field2name . '</b><br />';
-            echo $field5name . '<br />';
-            echo $field5name . '<br />';
-            echo $field5name;
+            $rows[] = array(
+                'e_name' => $row["e_name"],
+                'description' => $row["description"],
+                'max_capacity' => $row["max_capacity"],
+                'address' => $row["address"],
+                'e_type' => $row["e_type"],
+                's_date_time' => $row["s_date_time"],
+                'e_date_time' => $row["e_date_time"],
+                'num_rows' => $row["num_rows"],
+            );
         }
 
         /*freeresultset*/
