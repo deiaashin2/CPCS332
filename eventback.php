@@ -42,6 +42,14 @@ $query = "insert into event_(e_name, description, max_capacity,
 echo $query;
 echo "<br><br>";
 $isInserted = $mysqli->query($query);
+
+if ($mysqli->query($query) === TRUE) {
+  $last_id = $mysqli->insert_id;
+  echo "New record created successfully. Last inserted ID is: " . $last_id;
+} else {
+  echo "Error: " . $query . "<br>" . $mysqli->error;
+}
+
 echo "isInserted:";
 echo $isInserted;
 //check update
