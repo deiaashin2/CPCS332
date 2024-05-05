@@ -46,8 +46,8 @@
     ?>
 
     <!-- Your HTML content -->
-    <h1>Hello, World!</h1>
-    <p>This is a basic PHP boilerplate.</p>
+    <h1>Big Events</h1>
+    <p>This is a table of events with more than 100 attendees.</p>
 
 
     <table>
