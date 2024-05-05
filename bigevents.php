@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Big Events</title>
     <!-- Add your CSS stylesheets or other meta tags here -->
+    <link rel="stylesheet" href="bigevents.css">
 </head>
 
 <body>
