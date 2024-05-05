@@ -21,6 +21,10 @@
 
     if ($result = $mysqli->query($query)) {
 
+        while ($header = $result->fetch_field()) {
+            $headers[] = $header->name;
+        }
+
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
