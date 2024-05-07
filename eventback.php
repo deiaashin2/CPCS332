@@ -23,9 +23,10 @@ define("DB_USER", "root");
 define("DB_PWD", "123");
 define("DB_NAME", "aem");
 
-$mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-if ($mysqli->connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+$con = mysqli_connect(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
+
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
   exit();
 }
 
@@ -39,15 +40,33 @@ $query = "insert into event_(e_name, description, max_capacity,
         values('" . $e_name . "','" . $description . "','" . $max_capacity
   . "','" . $address . "','" . $e_type . "','" . $s_date_time . "','" . $e_date_time . "')";
 
-echo $query;
-echo "<br><br>";
-$isInserted = $mysqli->query($query);
+// echo $query;
+// echo "<br><br>";
+// $isInserted = $mysqli->query($query);
 
-if ($mysqli->query($query) === TRUE) {
+if ($con->query($query) === TRUE) {
   $last_id = $mysqli->insert_id;
-  echo "New record created successfully. Last inserted ID is: " . $last_id;
 } else {
   echo "Error: " . $query . "<br>" . $mysqli->error;
+}
+echo $last_id;
+
+$query .= "insert into attendee(ae_mail, ae_id) values('" . $e_mail . "','" . $last_id . "')";
+if (mysqli_multi_query($con, $)) {
+  do {
+    // Store first result set
+    if ($result = mysqli_store_result($con)) {
+      while ($row = mysqli_fetch_row($result)) {
+        printf("%s\n", $row[0]);
+      }
+      mysqli_free_result($result);
+    }
+    // if there are more result-sets, the print a divider
+    if (mysqli_more_results($con)) {
+      printf("-------------\n");
+    }
+     //Prepare next result set
+  } while (mysqli_next_result($con));
 }
 
 echo "isInserted:";
