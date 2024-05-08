@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    background: #2d6b9e;
+    background: #afdffd;
 }
 
 input,
@@ -137,6 +137,5 @@ button:hover{
     font-weight: bold;
     color: #455a81;
 }
-
 
 

@@ -24,8 +24,7 @@
                 </label>
                 <label>
                     <span>Description</span>
-                    <textarea rows="4" cols="33" type="text" name="description" placeholder="">
-                </textarea>
+                    <textarea rows="4" cols="33" type="text" name="description" placeholder=""></textarea>
                 </label>
                 <label>
                     <span>Max Capacity</span>
@@ -33,8 +32,7 @@
                 </label>
                 <label>
                     <span>Address</span>
-                    <textarea rows="2" cols="33" type="text" name="address" placeholder="">
-                </textarea>
+                    <textarea rows="2" cols="33" type="text" name="address" placeholder=""></textarea>
                 </label>
                 <label>
                     <span>Event Type</span>
