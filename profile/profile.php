@@ -52,6 +52,9 @@ H1{
         <form action="http://localhost/Ethan/profile/profile.php">
         <button class="button" type ="submit">Join Event</button>
         </form>
+        <form action="http://localhost/Ethan/bigevents.php">
+        <button class="button" type ="submit">Big Events</button>
+        </form>
         <div>
     
 </html>
