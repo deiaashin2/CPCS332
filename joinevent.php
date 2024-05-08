@@ -11,10 +11,10 @@
 
 <body>
     <?php
-    include("connection.php");
+    include ("connection.php");
 
     $query = "SELECT * FROM event_";
-    
+
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
@@ -63,11 +63,12 @@
             /* Loops through rows array and prints them as table rows */
             foreach ($rows as $r) {
                 echo '<tr>';
+                echo '<tr> <button type="button">Join!</button> </tr>';
                 foreach ($headers as $h) {
                     echo '<td>' . $r[$h] . '</td>';
-                    
+
                 }
-                echo '<tr> <button type="button">Joim!</button> </tr>';
+                echo '<td> <button type="button">Join!</button> </td>';
                 echo '</tr>';
             }
             ?>
