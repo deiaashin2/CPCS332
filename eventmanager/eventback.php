@@ -27,11 +27,10 @@ VALUES ('$e_name', '$description', '$max_capacity', '$address', '$e_type', '$s_d
 $isInserted = $mysqli->query($query);
 //check update
 if ($isInserted) {
-  header("location: http://localhost/Ethan/profile/profile.php");
+  header("location: http://localhost/Ethan/eventmanager/successevent.php");
 } else {
   // UPDATE failed
-  echo $mysqli->error();
-  echo "error";
+  header("location: http://localhost/Ethan/eventmanager/successevent.php");
 }
 } 
 ?>
