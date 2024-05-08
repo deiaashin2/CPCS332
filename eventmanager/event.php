@@ -40,11 +40,11 @@
                 </label>
                 <label>
                     <span>Event Start Date & Time</span>
-                    <input type="text" name="e_type" placeholder="">
+                    <input type="text" name="s_date_time" placeholder="">
                 </label>
                 <label>
-                    <span>Event Type</span>
-                    <input type="text" name="e_type" placeholder="">
+                    <span>Event End Date & Time</span>
+                    <input type="text" name="e_date_time" placeholder="">
                 </label>
                 <button type="submit" class="submit">Create Event</button>
             </form>
