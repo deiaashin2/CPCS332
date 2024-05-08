@@ -63,18 +63,32 @@
             /* Loops through rows array and prints them as table rows */
             foreach ($rows as $r) {
                 echo '<tr>';
-                echo '<tr> <button type="button">Join!</button> </tr>';
                 foreach ($headers as $h) {
                     echo '<td>' . $r[$h] . '</td>';
 
                 }
-                echo '<td> <button type="button">Join!</button> </td>';
+                echo '<td> <button data-id="' . $r['e_id'] . '">Join!</button> </td>';
                 echo '</tr>';
             }
             ?>
+
     </table>
 
     <!-- Add your JavaScript scripts or other content here -->
+    <p id="demo"></p>
+    <script>
+        const elements = document.querySelectorAll("button");
+        elements.forEach((element) => {
+            element.addEventListener("click", myFunction);
+        })
+
+        function myFunction(event) {
+            console.log('event', event.currentTarget.dataset.id);
+            document.getElementById("demo").innerHTML = "Hello World";
+
+            /*** POST to PHP file that adds attendee to event ***/
+        }
+    </script>
 
     <?php
     // More PHP code if needed
