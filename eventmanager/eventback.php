@@ -1,38 +1,34 @@
 <?php
 session_start();
-$e_mail = $_SESSION['e_mail'];
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//get data from form 
-$e_name = $_POST['e_name'] ?? '';
-$description = $_POST['description'] ?? '';
-$max_capacity = $_POST['max_capacity'] ?? '';
-$address = $_POST['address'] ?? '';
-$e_type = $_POST['e_type'] ?? '';
-$s_date_time = $_POST['s_date_time'] ?? '';
-$e_date_time = $_POST['e_date_time'] ?? '';
+$email = $_SESSION['e_mail'];
+echo $email;
 
-define("DB_SERVER", "localhost");
-define("DB_USER", "root");
-define("DB_PWD", "123");
-define("DB_NAME", "aem");
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-$mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-if ($mysqli->connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-  exit();
+    //get data from form post
+    $ename = $_POST['e_name'] ?? '';
+    $description = $_POST['description'] ?? '';
+    $capacity = $_POST['max_capacity'] ?? '';
+    $address = $_POST['address'] ?? '';
+    $etype = $_POST['e_type'] ?? '';
+    $sdatetime = $_POST['s_date_time'] ?? '';
+    $edatetime = $_POST['e_date_time'] ?? '';
+    include("../connection.php");
+
+
+    
+        $query = "insert into event_ (e_name, description, max_capacity,address, e_type, s_date_time, e_date_time, canceled, e_creator)
+         values('$ename', '$description', '$capacity', '$address', '$etype', '$sdatetime', '$edatetime', 1, '$email')";
+        echo $query;
+        $isInserted = $mysqli -> query($query);
+        //check update
+        if($isInserted) {
+            //if success redirect to index
+            header("Location: http://localhost/Ethan/eventmanager/successevent.php");
+          } else {
+            // UPDATE failed
+            echo $mysqli->error();
+            echo "error";
+          }
 }
-
-$query = "INSERT INTO event_(e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, e_creator)
-VALUES ('$e_name', '$description', '$max_capacity', '$address', '$e_type', '$s_date_time', '$e_date_time', '$e_mail')";
-
-echo $$query;
-$isInserted = $mysqli->query($query);
-//check update
-if ($isInserted) {
-  header("location: http://localhost/Ethan/eventmanager/successevent.php");
-} else {
-  // UPDATE failed
-  header("location: http://localhost/Ethan/eventmanager/failevent.php");
-}
-} 
 ?>

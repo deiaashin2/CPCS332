@@ -58,6 +58,9 @@ H1{
         <form action="http://localhost/Ethan/bigevents.php">
         <button class="button" type ="submit">Big Events</button>
         </form>
+        <form action="http://localhost/Ethan/canceledevent.php">
+        <button class="button" type ="submit">Canceled Events</button>
+        </form>
         <div>
     
 </html>
