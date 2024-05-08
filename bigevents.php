@@ -18,7 +18,8 @@
 
     $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
 
-    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, num_rows FROM event_ e JOIN ( SELECT ae_id, COUNT(*) AS num_rows FROM attendee GROUP BY ae_id HAVING num_rows > 100) a ON e.e_id = a.ae_id WHERE 1;";
+    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, num_rows FROM event_ e 
+    JOIN ( SELECT ae_id, COUNT(*) AS num_rows FROM attendee GROUP BY ae_id HAVING num_rows > 100) a ON e.e_id = a.ae_id WHERE 1;";
 
     if ($result = $mysqli->query($query)) {
 

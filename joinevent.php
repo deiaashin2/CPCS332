@@ -45,7 +45,7 @@
     ?>
 
     <!-- Your HTML content -->
-    <h1>Joim Events</h1>
+    <h1>Join Events</h1>
 
 
     <table>
@@ -100,7 +100,7 @@
                 body: formData
             }).then(res => {
                 console.log("Request complete! response:", res.text());
-                // location.reload();
+                header("location: http://localhost/Ethan/eventmanager/successevent.php");
             });
         }
     </script>
