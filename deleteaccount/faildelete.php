@@ -58,7 +58,7 @@
             <form action="http://localhost/Ethan/accountinfo.php">
                 <button class="submit" type="submit">Continue</button>
                 </form>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/2048px-Red_X.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -250px);">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/2048px-Red_X.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -300px);">
         </div>
         <label>
         

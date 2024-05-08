@@ -68,7 +68,7 @@
         </div>
         <div class="bottom">
             <p>Are you sure you want to delete your account?</p>
-            <img src="https://icons.veryicon.com/png/o/miscellaneous/flat-wireframe-library/trash-bin-3.png" alt="trashcan" width="40%" height="40%" style="transform: translate(0px, -230px);">
+            <img src="https://icons.veryicon.com/png/o/miscellaneous/flat-wireframe-library/trash-bin-3.png" alt="trashcan" width="40%" height="40%" style="transform: translate(0px, -270px);">
         </div>
         <label>
         <form action="http://localhost/Ethan/deleteaccount/deleteback.php">

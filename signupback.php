@@ -54,7 +54,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //if not found in db then insert
         else {
             // insert info into the db
-            $query = "insert into user_(f_name, l_name, phone_number, e_mail, password) values('" . $f_name ."','" . $l_name ."','" . $phone_number ."','" . $e_mail ."','" . $password ."')";
+            $query = "insert into user_(f_name, l_name, phone_number, e_mail, password) 
+            values('" . $f_name ."','" . $l_name ."','" . $phone_number ."','" . $e_mail ."','" . $password ."')";
 
             echo $query;
             $isInserted = $mysqli -> query($query);

@@ -71,7 +71,7 @@
             <form action="http://localhost/Ethan/eventmanager/event.php">
                 <button class="submit" type="submit">Continue</button>
                 </form>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/2048px-Eo_circle_green_checkmark.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -250px);">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/2048px-Eo_circle_green_checkmark.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -300px);">
         </div>
         <label>
         

@@ -100,7 +100,7 @@
                 body: formData
             }).then(res => {
                 console.log("Request complete! response:", res.text());
-                header("location: http://localhost/Ethan/eventmanager/successevent.php");
+                window.location.replace("http://localhost/Ethan/joineventsuccess.php");
             });
         }
     </script>

@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@5000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="logout.css">
+    <link rel="stylesheet" href="index.css">
     <!-- <link rel="stylesheet" href="index2.css"> -->
     <style>
          .button-group{
@@ -43,6 +45,9 @@ H1{
 </head>
 <body>
 <H1> PROFILE </H1>
+        <form action="http://localhost/Ethan/index.php">
+        <button class="logout" >log out</button>
+        </form>
         <form action="http://localhost/Ethan/accountinfo.php">
         <button class="button" type="submit">Account Info</button>
         </form>
@@ -61,6 +66,7 @@ H1{
         <form action="http://localhost/Ethan/canceledevent.php">
         <button class="button" type ="submit">Canceled Events</button>
         </form>
+
         <div>
     
 </html>
