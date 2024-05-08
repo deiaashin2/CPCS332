@@ -13,10 +13,8 @@
     <?php
     include("connection.php");
 
-    $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-
-    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, num_rows FROM event_";
-
+    $query = "SELECT * FROM event_";
+    echo $query;
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
@@ -28,6 +26,7 @@
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
+                'e_id' => $row["e_id"],
                 'e_name' => $row["e_name"],
                 'description' => $row["description"],
                 'max_capacity' => $row["max_capacity"],
@@ -45,8 +44,7 @@
     ?>
 
     <!-- Your HTML content -->
-    <h1>Big Events</h1>
-    <p>This is a table of events with more than 100 attendees.</p>
+    <h1>Joim Events</h1>
 
 
     <table>
