@@ -19,7 +19,7 @@
     $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
 
     $query = "SELECT f_name, l_name, e_mail, phone_number FROM user_ u JOIN ( SELECT e_creator, COUNT(*) AS row_count FROM event_ GROUP BY e_creator HAVING row_count > 10) e ON u.e_mail = e.e_creator WHERE 1;";
-
+    echo $query;
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
