@@ -14,7 +14,7 @@
     include("connection.php");
 
     $query = "SELECT * FROM event_";
-    echo $query;
+    
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
@@ -65,7 +65,9 @@
                 echo '<tr>';
                 foreach ($headers as $h) {
                     echo '<td>' . $r[$h] . '</td>';
+                    
                 }
+                echo '<tr> <button type="button">Joim!</button> </tr>';
                 echo '</tr>';
             }
             ?>
