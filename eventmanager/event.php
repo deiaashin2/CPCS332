@@ -50,7 +50,7 @@
             </form>
         </div>
     </div>
-    <form action="../profile/profile.php">
+    <form action="../home.html">
         <button class="goback" >Go back<button>
             </form>
 

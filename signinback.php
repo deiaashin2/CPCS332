@@ -38,7 +38,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows > 0) {
     // Email and password combination exists in the database
     echo "Login successful!";
-    header("location: http://localhost/Ethan/profile/profile.php");
+    header("location: http://localhost/Ethan/home.html");
 } else {
     // Email and password combination does not exist in the database
     echo "Invalid email or password.";
