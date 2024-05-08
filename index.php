@@ -1,30 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
 
+        
     <br>
     <br>
     <div class="cont">
         <div class="form sign-in">
-        <h2>Welcome</h2>
+            <h2>Welcome</h2>
             <form action="signinback.php" method="post">
             <label>
                 <span>Email</span>
                 <input type="text" name="e_mail"/>
             </label>
-            <label>
+                <label>
                 <span>Password</span>
                 <input type="text" name="password"/>
             </label>
             <p class="forgot-pass">Forgot password?</p>
-            <button type="submit" class="submit">Sign in</button>
+            <button type="submit" class="submit">Sign In</button>
 </form>
+         
         </div>
         <div class="sub-cont">
             <div class="img">
@@ -42,8 +47,8 @@
                 </div>
             </div>
             <div class="form sign-up">
-                <h2>Create your Account</h2>
-                <form action="signupback.php" method="post">
+        <h2>Create your Account</h2>
+                <form action="newusers/signupback.php" method="post">
                 <label>
                     <span>First Name</span>
                     <input type="text" name="f_name" placeholder="">
@@ -65,12 +70,11 @@
                     <input type="text" name="password" placeholder="">
                 </label>
                 <button type="submit" class="submit">Sign Up</button>
-                <form>
-
+</form>
+                
             </div>
         </div>
     </div>
-
     <script>
         document.querySelector('.img__btn').addEventListener('click', function() {
             document.querySelector('.cont').classList.toggle('s--signup');

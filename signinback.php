@@ -1,37 +1,50 @@
 <?php
-ob_start();
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $e_mail = $_POST['e_mail'] ?? '';
-    $password = $_POST['password'] ?? '';
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    $email = $_POST['e_mail'] ?? '';
+    $pwd = $_POST['password'] ?? '';
 
-    define("DB_SERVER", "localhost");
-    define("DB_USER", "root");
-    define("DB_PWD", "123");
-    define("DB_NAME", "aem");
+    $_SESSION['e_mail'] = $email;
+    $_SESSION['password'] = $pwd;
 
-    $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli->connect_error;
-        exit();
+    include("connection.php");
+    
     }
-}
 // SQL query to check if the email and hashed password exist in the database
-$sql = "SELECT * FROM user_ WHERE e_mail = '$e_mail' AND password = '$password'";
+$fname_query = $mysqli->query("SELECT f_name FROM user_ WHERE e_mail = '$email'");
+$fname_row = $fname_query->fetch_assoc();
+$fname = $fname_row['f_name'];
+$_SESSION['f_name'] = $fname;
+
+$lname_query = $mysqli->query("SELECT l_name FROM user_ WHERE e_mail = '$email'");
+$lname_row = $lname_query->fetch_assoc();
+$lname = $lname_row['l_name'];
+$_SESSION['l_name'] = $lname;
+
+$phonenumber_query = $mysqli->query("SELECT phone_number FROM user_ WHERE e_mail = '$email'");
+$phonenumber_row = $phonenumber_query->fetch_assoc();
+$phonenumber = $phonenumber_row['phone_number'];
+$_SESSION['phone_number'] = $phonenumber;
+
+$sql = "SELECT * FROM user_ WHERE e_mail = '$email' AND password = '$pwd'";
+
 
 // Execute the query
 $result = $mysqli->query($sql);
 
+// Check if any rows were returned
 if ($result->num_rows > 0) {
-    session_start();
-    $_SESSION['e_mail'] = $e_mail;
+    // Email and password combination exists in the database
     echo "Login successful!";
-    header("location: http://localhost/CPCS332/event.php");
+    header("location: http://localhost/Ethan/profile/profile.php");
+} else {
+    // Email and password combination does not exist in the database
+    echo "Invalid email or password.";
+    header("location: http://localhost/Ethan/newusers/fail.php");
 }
-else
-{
-    echo "Invalid email or password." . $mysqli -> connect_error;
-    header("location: http://localhost/CPCS332/");
-}
+
+// Close database connection
+$mysqli->close();
 ?>
