@@ -49,7 +49,7 @@ H1{
         <form action="http://localhost/Ethan/eventmanager/event.php">
         <button class="button" type="submit">Host an Event</button>
         </form>
-        <form action="http://localhost/Ethan/profile/profile.php">
+        <form action="http://localhost/Ethan/joinevent.php">
         <button class="button" type ="submit">Join Event</button>
         </form>
         <form action="http://localhost/Ethan/bigevents.php">
