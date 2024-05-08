@@ -16,7 +16,7 @@
         .button{
             display: block;
             
-            margin-left: 350px;
+            margin-left: 475px;
             margin-top: 80px;
             width: 500px;
             height: 100px;
@@ -25,7 +25,7 @@
             color: #000000;
             font-size: 23px;
             cursor: pointer;
-            background: #ADD8E6;
+            background: #FAF9F6
             font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     }
     .button:hover{
@@ -34,7 +34,7 @@
     }
     body {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    background: #FFB6C1;
+    background: #afdffd;
 }
 H1{
     text-align: center;
@@ -51,6 +51,9 @@ H1{
         </form>
         <form action="http://localhost/Ethan/joinevent.php">
         <button class="button" type ="submit">Join Event</button>
+        </form>
+        <form action="http://localhost/Ethan/joinevent.php">
+        <button class="button" type ="submit">Events Atending</button>
         </form>
         <form action="http://localhost/Ethan/bigevents.php">
         <button class="button" type ="submit">Big Events</button>
