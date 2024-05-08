@@ -1,6 +1,8 @@
 <?php
+session_start();
+$e_mail = $_SESSION['e_mail'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//get data from form post
+//get data from form 
 $e_name = $_POST['e_name'] ?? '';
 $description = $_POST['description'] ?? '';
 $max_capacity = $_POST['max_capacity'] ?? '';
@@ -20,17 +22,17 @@ if ($mysqli->connect_errno) {
   exit();
 }
 
+$query = "INSERT INTO event_(e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, e_creator)
+VALUES ('$e_name', '$description', '$max_capacity', '$address', '$e_type', '$s_date_time', '$e_date_time', '$e_mail')";
 
-$query = "INSERT INTO event_(e_name, description, max_capacity, address, e_type, s_date_time, e_date_time)
-VALUES ('$e_name', '$description', '$max_capacity', '$address', '$e_type', '$s_date_time', '$e_date_time');";
-
+echo $$query;
 $isInserted = $mysqli->query($query);
 //check update
 if ($isInserted) {
   header("location: http://localhost/Ethan/eventmanager/successevent.php");
 } else {
   // UPDATE failed
-  header("location: http://localhost/Ethan/eventmanager/successevent.php");
+  header("location: http://localhost/Ethan/eventmanager/failevent.php");
 }
 } 
 ?>
