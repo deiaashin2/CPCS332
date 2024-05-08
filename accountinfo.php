@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="update/update.css">
+    <link rel="stylesheet" href="accountdesign.css">
     <link rel="stylesheet" href="goback.css">
     <link rel="stylesheet" href="deleteaccount/delete.css">
     <title>Document</title>
