@@ -11,6 +11,7 @@
 
 <body>
     <?php
+    session_start();
     include ("connection.php");
 
     $query = "SELECT * FROM event_";
@@ -67,7 +68,7 @@
                     echo '<td>' . $r[$h] . '</td>';
 
                 }
-                echo '<td> <button data-id="' . $r['e_id'] . '">Join!</button> </td>';
+                echo '<td> <button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Join!</button> </td>';
                 echo '</tr>';
             }
             ?>
@@ -87,6 +88,20 @@
             document.getElementById("demo").innerHTML = "Hello World";
 
             /*** POST to PHP file that adds attendee to event ***/
+            const eventId = event.currentTarget.dataset.id;
+            const userId = event.currentTarget.dataset.userid;
+
+            var formData = new FormData();
+            formData.append('userId', userId);
+            formData.append('eventId', eventId);
+
+            fetch("joinevent_back.php", {
+                method: 'POST',
+                body: formData
+            }).then(res => {
+                console.log("Request complete! response:", res.text());
+                // location.reload();
+            });
         }
     </script>
 
