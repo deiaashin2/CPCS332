@@ -54,7 +54,7 @@
             <h3>UH - OH!</h3>
         </div>
         <div class="bottom">
-            <p>Account did not delete correctly.</p>
+            <p>Did not delete correctly.</p>
             <form action="http://localhost/Ethan/accountinfo.php">
                 <button class="submit" type="submit">Continue</button>
                 </form>

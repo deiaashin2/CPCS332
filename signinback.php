@@ -47,4 +47,4 @@ if ($result->num_rows > 0) {
 
 // Close database connection
 $mysqli->close();
-?>
+

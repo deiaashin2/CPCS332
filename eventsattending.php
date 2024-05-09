@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Creators</title>
+    <title>Big Events</title>
     <!-- Add your CSS stylesheets or other meta tags here -->
     <link rel="stylesheet" href="bigevents.css">
 </head>
@@ -18,9 +18,8 @@
 
     $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
 
-    $query = "SELECT f_name, l_name, e_mail, phone_number FROM user_ u 
-    JOIN ( SELECT e_creator, COUNT(*) AS row_count FROM event_ GROUP BY e_creator HAVING row_count > 10) e 
-    ON u.e_mail = e.e_creator WHERE 1;";
+    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time, num_rows FROM event_ e 
+    JOIN ( SELECT ae_id, COUNT(*) AS num_rows FROM attendee GROUP BY ae_id) a ON e.e_id = a.ae_id WHERE 1;";
 
     if ($result = $mysqli->query($query)) {
 
@@ -33,10 +32,14 @@
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
-                'f_name' => $row["f_name"],
-                'l_name' => $row["l_name"],
-                'e_mail' => $row["e_mail"],
-                'phone_number' => $row["phone_number"]
+                'e_name' => $row["e_name"],
+                'description' => $row["description"],
+                'max_capacity' => $row["max_capacity"],
+                'address' => $row["address"],
+                'e_type' => $row["e_type"],
+                's_date_time' => $row["s_date_time"],
+                'e_date_time' => $row["e_date_time"],
+                'num_rows' => $row["num_rows"],
             );
         }
 
@@ -46,8 +49,8 @@
     ?>
 
     <!-- Your HTML content -->
-    <h1>Event Hosts</h1>
-    <p>This is a table of event creators with more than 10 events created.</p>
+    <h1>Events Attending</h1>
+    <p>Your Events.</p>
 
 
     <table>
