@@ -14,10 +14,10 @@ echo $found;
 $sql = "delete from user_ WHERE e_mail = '$email';";
 echo $sql;
 if($mysqli->query($sql) === True){
-    header("location: https:///localhost/Ethan/deleteaccount/confirmdelete.php");
+    header("location: https:///localhost/Ethan/users/confirmdelete.php");
 }
 else{
-    header("location: https:///localhost/Ethan/deleteaccount/faildelete.php");
+    header("location: https:///localhost/Ethan/users/faildelete.php");
 }
 
 ?>

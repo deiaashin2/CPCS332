@@ -27,7 +27,7 @@
     .top{
         height: 50%;
         width: 100%;
-        background-color: #808080;
+        background-color: #333;
         color: white;
         border-radius: 10px 10px 0px 0px;
     }
@@ -42,20 +42,7 @@
         margin-top: 10%;
         color: #333;
     }
-    button{
-        border: none;
-        border-radius: 5px;
-        padding: 10px 35px;
-        color: white;
-        background-color: #333;
-        z-index: 1;
-        position:relative; 
-        margin-top: 10%;
-    }
-    button:hover{
-        background-color: #222;
-        cursor: pointer;
-    }
+    
     
     
     </style>
@@ -64,20 +51,16 @@
     <div class="container">
         <div class="top">
             <i class="fa-regular fa-circle-check"></i>
-            <h3>Sad to see you go</h3>
+            <h3>UH - OH!</h3>
         </div>
         <div class="bottom">
-            <p>Are you sure you want to delete?</p>
-            <img src="https://icons.veryicon.com/png/o/miscellaneous/flat-wireframe-library/trash-bin-3.png" alt="trashcan" width="40%" height="40%" style="transform: translate(0px, -270px);">
+            <p>Did not delete correctly.</p>
+            <form action="http://localhost/Ethan/users/accountinfo.php">
+                <button class="submit" type="submit">Continue</button>
+                </form>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/2048px-Red_X.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -300px);">
         </div>
         <label>
-        <form action="http://localhost/Ethan/deleteaccount/deleteback.php">
-                <button class="button" style= "transform: translate(-150%, -500%)">Yes</button>
-                </form>
-        <form action="http://localhost/Ethan/accountinfo.php">
-                <button class="button" style= "transform: translate(150%, -725%)">No</button>
-                </form>
-        
         
 
     

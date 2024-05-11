@@ -15,9 +15,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="accountdesign.css">
-    <link rel="stylesheet" href="goback.css">
-    <link rel="stylesheet" href="deleteaccount/delete.css">
+    <link rel="stylesheet" href="../users/accountdesign.css">
+    <link rel="stylesheet" href="../goback.css">
+    <link rel="stylesheet" href="../deleteaccount/delete.css">
     <title>Document</title>
     <style>
         
@@ -27,18 +27,18 @@
 
     <br>
     <br>
-    <form action="home.html">
-<button class="goback">Go back</button>
-</form>
+    <form action="../home.html">
+    <button class="goback">Go back</button>
+    </form>
 
 
-<form action="deleteaccount/deletion.php">
-<button class="delete">Delete</button>
-</form>
+    <form action="../users/deletion.php">
+    <button class="delete">Delete</button>
+    </form>
     <div class="cont">
         <div class="form sign-in">
             <h2>Account Info</h2>
-            <form action="update/updateback.php" method="post">
+            <form action="../users/updateback.php" method="post">
             <label>
                 <span>First Name</span>
                 <input type="text" name="f_name" placeholder="<?php echo $fname; ?>"/>

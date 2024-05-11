@@ -42,20 +42,7 @@
         margin-top: 10%;
         color: #333;
     }
-    button{
-        border: none;
-        border-radius: 5px;
-        padding: 10px 35px;
-        color: white;
-        background-color: #333;
-        z-index: 1;
-        position:relative; 
-        margin-top: 10%;
-    }
-    button:hover{
-        background-color: #222;
-        cursor: pointer;
-    }
+    
     
     
     </style>
@@ -64,14 +51,14 @@
     <div class="container">
         <div class="top">
             <i class="fa-regular fa-circle-check"></i>
-            <h3>SUCCESS</h3>
+            <h3>UH - OH!</h3>
         </div>
         <div class="bottom">
-            <p>Account successfully deleted.</p>
-            <form action="http://localhost/Ethan/index.php">
+            <p>Account settings not saved.</p>
+            <form action="http://localhost/Ethan/users/accountinfo.php">
                 <button class="submit" type="submit">Continue</button>
                 </form>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/2048px-Eo_circle_green_checkmark.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -300px);">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/2048px-Red_X.svg.png" alt="Checkmark" width="20%" height="20%" style="transform: translate(0px, -250px);">
         </div>
         <label>
         

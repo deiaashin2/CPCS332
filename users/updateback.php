@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $sql;
     if ($mysqli->query($sql) === TRUE) {
         echo $sql;
-        header("location: https://localhost/Ethan/update/successupdate.php");
+        header("location: https://localhost/Ethan/users/successupdate.php");
     } else {
-        header("location: https://localhost/Ethan/update/failupdate.php");
+        header("location: https://localhost/Ethan/users/failupdate.php");
     }
 }
 ?>
