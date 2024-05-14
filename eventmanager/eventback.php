@@ -1,7 +1,6 @@
 <?php
 session_start();
 $email = $_SESSION['e_mail'];
-echo $email;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -18,8 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     
         $query = "insert into event_ (e_name, description, max_capacity,address, e_type, s_date_time, e_date_time, canceled, e_creator)
-         values('$ename', '$description', '$capacity', '$address', '$etype', '$sdatetime', '$edatetime', 1, '$email')";
-        echo $query;
+         values('$ename', '$description', '$capacity', '$address', '$etype', '$sdatetime', '$edatetime', '1', '$email')";
         $isInserted = $mysqli -> query($query);
         //check update
         if($isInserted) {

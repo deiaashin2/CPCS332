@@ -7,6 +7,7 @@
     <title>Big Events</title>
     <!-- Add your CSS stylesheets or other meta tags here -->
     <link rel="stylesheet" href="bigevents.css">
+    <link rel="stylesheet" href="../delete.css">
 </head>
 
 <body>
@@ -51,8 +52,9 @@
     <!-- Your HTML content -->
     <h1>Events Attending</h1>
     <p>Your Events.</p>
-    <form action="home.html">
+    <form action="../home.html">
     <button class="goback">Go back</button>
+    <h1></h1>
     </form>
 
 

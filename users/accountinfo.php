@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../users/accountdesign.css">
     <link rel="stylesheet" href="../goback.css">
-    <link rel="stylesheet" href="../deleteaccount/delete.css">
+    <link rel="stylesheet" href="../delete.css">
     <title>Document</title>
     <style>
         
@@ -35,6 +35,7 @@
     <form action="../users/deletion.php">
     <button class="delete">Delete</button>
     </form>
+
     <div class="cont">
         <div class="form sign-in">
             <h2>Account Info</h2>

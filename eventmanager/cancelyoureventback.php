@@ -4,8 +4,9 @@ $eventId = $_POST["eventId"];
 
 include("../connection.php");
 
-$query = "INSERT INTO attendee(ae_id, ae_mail) VALUES ('$eventId','$userId')";
+$query = "UPDATE event_ SET canceled = '0' WHERE e_creator = '$userId' AND e_id = '$eventId';";
 echo $query;
 $result = $mysqli->query($query);
+
 
 ?>

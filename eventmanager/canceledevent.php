@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    include("connection.php");
+    include("../connection.php");
 
     $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time FROM event_ WHERE canceled = '0'";
 
@@ -44,8 +44,9 @@
     <!-- Your HTML content -->
     <h1>Canceled Events</h1>
     <p>This is a table of events canceled</p>
-    <form action="home.html">
+    <form action="../updateventpage.html">
     <button class="goback">Go back</button>
+    <h1></h1>
     </form>
 
 

@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Events</title>
+    <title>Cancel Your Events</title>
     <!-- Add your CSS stylesheets or other meta tags here -->
     <link rel="stylesheet" href="bigevents.css">
-    <link rel="stylesheet" href="goback.css">
+    <link rel="stylesheet" href="../delete.css">
 </head>
 
 <body>
     <?php
     session_start();
-    include ("../connection.php");
+    $email = $_SESSION['e_mail'];
 
-    $query = "SELECT * FROM event_ WHERE canceled = '1';";
+    define("DB_SERVER", "localhost");
+    define("DB_USER", "root");
+    define("DB_PWD", "123");
+    define("DB_NAME", "aem");
 
+    $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
+
+    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time FROM event_ WHERE e_creator = '$email' AND canceled ='1'";
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
@@ -28,7 +34,6 @@
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
-                'e_id' => $row["e_id"],
                 'e_name' => $row["e_name"],
                 'description' => $row["description"],
                 'max_capacity' => $row["max_capacity"],
@@ -46,13 +51,14 @@
     ?>
 
     <!-- Your HTML content -->
-    <h1>Join Events</h1>
+    <h1>Events Created</h1>
     <form action="../home.html">
-    <button class="../goback">Go back</button>
-    <h2></h2>
+    <button class="goback">Go back</button>
+    <h1></h1>
     </form>
 
 
+    
     <table>
         <thead>
             <tr>
@@ -73,7 +79,7 @@
                     echo '<td>' . $r[$h] . '</td>';
 
                 }
-                echo '<td> <button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Join!</button> </td>';
+                echo '<td> <button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Delete</button> </td>';
                 echo '</tr>';
             }
             ?>
@@ -100,19 +106,15 @@
             formData.append('userId', userId);
             formData.append('eventId', eventId);
 
-            fetch("../eventmanager/joinevent_back.php", {
+            fetch("../eventmanager/cancelyoureventback.php", {
                 method: 'POST',
                 body: formData
             }).then(res => {
                 console.log("Request complete! response:", res.text());
-                window.location.replace("http://localhost/Ethan/eventmanager/joineventsuccess.php");
+                window.location.replace("http://localhost/Ethan/eventmanager/deleteevent.php");
             });
         }
     </script>
-
-    <?php
-    // More PHP code if needed
-    ?>
 
 </body>
 

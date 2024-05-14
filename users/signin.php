@@ -24,7 +24,7 @@
             </label>
                 <label>
                 <span>Password</span>
-                <input type="text" name="password"/>
+                <input type="password" name="password" />
             </label>
             <p class="forgot-pass">Forgot password?</p>
             <button type="submit" class="submit">Sign In</button>
@@ -67,7 +67,7 @@
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="text" name="password" placeholder="">
+                    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
                 </label>
                 <button type="submit" class="submit">Sign Up</button>
 </form>
