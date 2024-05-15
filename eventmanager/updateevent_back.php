@@ -1,16 +1,3 @@
-<?php
-session_start();
-$userId = $_POST["userId"];
-$eventId = $_POST["eventId"];
-$description = $_SESSION['description'];
-$max_capacity = $_SESSION['max_capacity'];
-$address = $_SESSION['address'];
-$e_type = $_SESSION['e_type'];
-$s_date_time = $_SESSION['s_date_time'];
-$e_date_time = $_SESSION['e_date_time'];
-echo $userId;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,34 +23,38 @@ echo $userId;
             <h2>Updade Event</h2>
             <form action="updateevent_back.php" method="post">
             <label>
-                <span>First Name</span>
-                <input type="text" name="e_name" placeholder="<?php echo $e_name; ?>"/>
+                <span>Event ID</span>
+                <input type="text" name="e_id"/>
+            </label>  
+            <label>
+                <span>Event Name</span>
+                <input type="text" name="e_name"/>
             </label>
             <label>
                 <span>Description</span>
-                <textarea rows="4" cols="33" type="text" name="description" placeholder="<?php echo $description;?>"></textarea>
+                <textarea rows="3" cols="33" type="text" name="description"></textarea>
                 
                 </label>
             <label>
                 <span>Max Capacity</span>
-                <input type="text" name="max_capacity" placeholder="<?php echo $max_capacity; ?>"/>
+                <input type="text" name="max_capacity" />
             </label>
             <label>
                 <span>Address</span>
-                <textarea rows="4" cols="33" type="text" name="description" placeholder="<?php echo $description;?>"></textarea>
+                <textarea rows="2" cols="33" type="text" name="description" ></textarea>
             
                 </label>  
             <label>
                 <span>Typer</span>
-                <input type="text" name="e_type" placeholder="<?php echo $e_type; ?>"/>
+                <input type="text" name="e_type" />
             </label>
             <label>
                 <span>Start Event Date & Time</span>
-                <input type="text" name="s_date_time" placeholder="<?php echo $s_date_time; ?>"/>
+                <input type="text" name="s_date_time" />
             </label>
             <label>
                 <span>End Event Date & Time</span>
-                <input type="text" name="e_date_time" placeholder="<?php echo $e_date_time; ?>"/>
+                <input type="text" name="e_date_time" />
             </label>
 
                 <button class="submit" button="submit">Update</button>     
@@ -81,23 +72,28 @@ echo $userId;
 
 
 <?php
-$userId = $_POST["userId"];
-$eventId = $_POST["eventId"];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $e_name = $_POST['e_name'];
-    $description = $_POST['description'];
-    $max_capacity = $_POST['max_capacity'];
-    $address = $_POST['address'];
-    $e_type = $_POST['e_type'];
-    $s_date_time = $_POST['s_date_time'];
-    $e_date_time = $_SESSION['e_date_time'];
+    $_POST = array_filter($_POST);
+    $e_id = $_POST['e_id'] ?? $e_id;
+    $e_name = $_POST['e_name'] ?? $e_name;
+    $description = $_POST['description']?? $description;
+    $max_capacity = $_POST['max_capacity']?? $max_capacity;
+    $address = $_POST['address']?? $address;
+    $e_type = $_POST['e_type']?? $e_type;
+    $s_date_time = $_POST['s_date_time']?? $s_date_time;
+    $e_date_time = $_POST['e_date_time']?? $e_date_time;
     
 
     include("../connection.php");
 
     $sql = "UPDATE event_ SET ";
-    if (!empty($e_mail)) {
+    if (!empty($e_id)) {
+        $sql .= "e_id = '$e_id', ";
+        $_SESSION['e_id'] = $e_id;
+
+    }
+    if (!empty($e_name)) {
         $sql .= "e_name = '$e_name', ";
         $_SESSION['e_name'] = $e_name;
 
@@ -133,13 +129,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = rtrim($sql, ", ");
 
     // Add the WHERE clause
-    $sql .= " WHERE e_creator = '$userId' and e_id = '$eventId';";
+    $sql .= " WHERE e_id = '$e_id';";
     echo $sql;
     if ($mysqli->query($sql) === TRUE) {
         echo $sql;
-        header("location: https://localhost/Ethan/update/successupdate.php");
+        header("location: https://localhost/Ethan/eventmanager/updateeventsuccess.php");
     } else {
-        header("location: https://localhost/Ethan/update/failupdate.php");
+        header("location: https://localhost/Ethan/eventmanager/updateeventfail.php");
     }
 }
 ?>

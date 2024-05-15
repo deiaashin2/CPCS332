@@ -98,6 +98,8 @@
             var formData = new FormData();
             formData.append('userId', userId);
             formData.append('eventId', eventId);
+
+            window.location.href = "updateevent_back.php";
         }
     </script>
 </body>
