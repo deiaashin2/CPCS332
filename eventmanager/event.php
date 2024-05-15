@@ -36,7 +36,12 @@
                 </label>
                 <label>
                     <span>Event Type</span>
-                    <input type="text" name="e_type" placeholder="">
+                    <select name="e_type" id="e_type">
+                        <option value="volvo">Oral Presentation</option>
+                        <option value="saab">Poster</option>
+                        <option value="opel">Online</option>
+                    </select>
+                    
                 </label>
                 <label>
                     <span>Event Start Date & Time</span>

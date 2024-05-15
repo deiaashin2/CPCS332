@@ -45,8 +45,12 @@
             
                 </label>  
             <label>
-                <span>Typer</span>
-                <input type="text" name="e_type" />
+                <span>Type</span>
+                <select name="e_type" id="e_type">
+                        <option value="volvo">Oral Presentation</option>
+                        <option value="saab">Poster</option>
+                        <option value="opel">Online</option>
+                    </select>
             </label>
             <label>
                 <span>Start Event Date & Time</span>
