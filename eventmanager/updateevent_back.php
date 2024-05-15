@@ -1,13 +1,14 @@
 <?php
 session_start();
-$e_name = $_SESSION['e_name'];
+$userId = $_POST["userId"];
+$eventId = $_POST["eventId"];
 $description = $_SESSION['description'];
 $max_capacity = $_SESSION['max_capacity'];
 $address = $_SESSION['address'];
 $e_type = $_SESSION['e_type'];
 $s_date_time = $_SESSION['s_date_time'];
 $e_date_time = $_SESSION['e_date_time'];
-echo $e_name;
+echo $userId;
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +16,8 @@ echo $e_name;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="eventmanager/eventdesign.css">
-    <link rel="stylesheet" href="goback.css">
-    <link rel="stylesheet" href="deleteaccount/delete.css">
+    <link rel="stylesheet" href="../eventmanager/eventdesign.css">
+    <link rel="stylesheet" href="../goback.css">
     <title>Update Event</title>
     <style>
         
@@ -27,7 +27,7 @@ echo $e_name;
 
     <br>
     <br>
-    <form action="home.html">
+    <form action="updateevent.php">
 <button class="goback">Go back</button>
 </form>
 

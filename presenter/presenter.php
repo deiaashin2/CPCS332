@@ -1,170 +1,84 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
-    <!-- Add your CSS stylesheets or other meta tags here -->
-    <link rel="stylesheet" href="../bigevents.css">
+    <link rel="stylesheet" href="../users/signin.css">
+    <title>Document</title>
 </head>
-
 <body>
-    <?php
-    define("DB_SERVER", "localhost");
-    define("DB_USER", "root");
-    define("DB_PWD", "123");
-    define("DB_NAME", "aem");
 
-    $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-
-    $query = "SELECT event_.e_id, event_.e_name, event_.description, event_.e_type, event_.e_date_time, presenter.p_name 
-            FROM event_ JOIN presenter ON event_.e_id = presenter.pe_id;";
-    if ($result = $mysqli->query($query)) {
-
-        /* Collects headers into an array */
-        while ($header = $result->fetch_field()) {
-            $headers[] = $header->name;
-        }
-
-        /* Collects rows into an array */
-        while ($row = $result->fetch_assoc()) {
-
-            $rows[] = array(
-                'e_id' => $row["e_id"],
-                'e_name' => $row["e_name"],
-                'description' => $row["description"],
-                'address' => $row["address"],
-                'e_type' => $row["e_type"],
-                's_date_time' => $row["s_date_time"],
-                'e_date_time' => $row["e_date_time"],
-                'p_name' => $row["p_name"],
-
-            );
-        }
-
-        /*freeresultset*/
-        $result->free();
-    }
-    ?>
-
-    <!-- Your HTML content -->
-    <h1>Presenters</h1>
-    <form action="home.html">
-    <button class="goback">Go back</button>
-    </form>
-
-
-    <table>
-        <thead>
-            <tr>
-                <?php
-                /* Loops through headers array and prints them as table headers */
-                foreach ($headers as $h) {
-                    echo '<th>' . $h . '</th>';
-                }
-                ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            /* Loops through rows array and prints them as table rows */
-            foreach ($rows as $r) {
-                echo '<tr>';
-                foreach ($headers as $h) {
-                    echo '<td>' . $r[$h] . '</td>';
-                }
-                echo '</tr>';
-            }
-            ?>
-    </table>
-
-    <!-- Add your JavaScript scripts or other content here -->
-
-    <?php
-    // More PHP code if needed
-    ?>
-
+        
+    <br>
+    <br>
+    <div class="cont">
+        <div class="form sign-in">
+            <h2>Welcome</h2>
+            <form action="../presenter/presenterin_back.php" method="post">
+            <label>
+                <span>Email</span>
+                <input type="text" name="e_mail"/>
+            </label>
+                <label>
+                <span>Password</span>
+                <input type="password" name="password" />
+            </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="submit" class="submit">Sign In</button>
+</form>
+         
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                 
+                    <h3>Don't have a manager account? Please Sign up!<h3>
+                </div>
+                <div class="img__text m--in">
+                
+                    <h3>If you already has a manager account, just sign in.<h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+        <h2>Create your Account</h2>
+                <form action="../presenter/presenterup_back.php" method="post">
+                <label>
+                    <span>First Name</span>
+                    <input type="text" name="f_name" placeholder="">
+                </label>
+                <label>
+                    <span>Last Name</span>
+                    <input type="text" name="l_name" placeholder="">
+                </label>
+                <label>
+                    <span>Phone Number</span>
+                    <input type="text" name="phone_number" placeholder="">
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="text" name="e_mail" placeholder="">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+                </label>
+                <button type="submit" class="submit">Sign Up</button>
+</form>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function() {
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script>
 </body>
-
-</html>
-
-<body>
-    <?php
-    define("DB_SERVER", "localhost");
-    define("DB_USER", "root");
-    define("DB_PWD", "123");
-    define("DB_NAME", "aem");
-
-    $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
-
-    $sql = "SELECT event_.e_id, event_.e_name, event_.description, event_.e_type, event_.e_date_time, sponsor.company_name 
-            FROM event_ JOIN sponsor ON event_.e_id = sponsor.se_id;";
-    if ($fool = $mysqli->query($sql)) {
-
-        /* Collects headers into an array */
-        while ($header = $fool->fetch_field()) {
-            $headers[] = $fool->name;
-        }
-
-        /* Collects rows into an array */
-        while ($row = $fool->fetch_assoc()) {
-
-            $rows[] = array(
-                'e_id' => $row["e_id"],
-                'e_name' => $row["e_name"],
-                'description' => $row["description"],
-                'address' => $row["address"],
-                'e_type' => $row["e_type"],
-                's_date_time' => $row["s_date_time"],
-                'e_date_time' => $row["e_date_time"],
-                'company_name' => $row["company_name"],
-
-            );
-        }
-
-        /*freeresultset*/
-        $fool->free();
-    }
-    ?>
-
-    <!-- Your HTML content -->
-    <h1>Sponsors</h1>
-    <form action="home.html">
-    <button class="goback">Go back</button>
-    </form>
-
-
-    <table>
-        <thead>
-            <tr>
-                <?php
-                /* Loops through headers array and prints them as table headers */
-                foreach ($headers as $h) {
-                    echo '<th>' . $h . '</th>';
-                }
-                ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            /* Loops through rows array and prints them as table rows */
-            foreach ($rows as $r) {
-                echo '<tr>';
-                foreach ($headers as $h) {
-                    echo '<td>' . $r[$h] . '</td>';
-                }
-                echo '</tr>';
-            }
-            ?>
-    </table>
-
-    <!-- Add your JavaScript scripts or other content here -->
-
-    <?php
-    // More PHP code if needed
-    ?>
-
-</body>
-
 </html>

@@ -14,7 +14,7 @@
     session_start();
     $email = $_SESSION['e_mail'];
     
-    include ("connection.php");
+    include ("../connection.php");
 
     $query = "SELECT e_id, e_name, description, max_capacity, address, e_type, s_date_time, e_date_time 
                 FROM event_ WHERE e_creator='$email' AND canceled = '1';";
@@ -47,8 +47,9 @@
 
     <!-- Your HTML content -->
     <h1>Edit Events</h1>
-    <form action="home.html">
+    <form action="../updateventpage.html">
     <button class="goback">Go back</button>
+    <h1></h1>
     </form>
 
     <table>
@@ -71,8 +72,7 @@
                     echo '<td>' . $r[$h] . '</td>';
 
                 }
-                echo '<td> <button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Update!</button> </td>';
-                echo '<td> <button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Delete!</button> </td>';
+                echo '<td> <form action="../eventmanager/updateevent_back.php"><button data-id="' . $r['e_id'] . '" data-userid="' . $_SESSION['e_mail'] . '">Update!</button></form></td>';
                 echo '</tr>';
             }
             ?>
@@ -89,7 +89,7 @@
 
         function myFunction(event) {
             console.log('event', event.currentTarget.dataset.id);
-            document.getElementById("demo").innerHTML = "";
+            document.getElementById("demo").innerHTML = "Hello World";
 
             /*** POST to PHP file that adds attendee to event ***/
             const eventId = event.currentTarget.dataset.id;
@@ -98,21 +98,8 @@
             var formData = new FormData();
             formData.append('userId', userId);
             formData.append('eventId', eventId);
-
-            fetch("deleteevent.php", {
-                method: 'POST',
-                body: formData
-            }).then(res => {
-                console.log("Request complete! response:", res.text());
-                window.location.replace("http://localhost/Ethan/u_confirmdelete.php");
-            });
         }
     </script>
-
-    <?php
-    // More PHP code if needed
-    ?>
-
 </body>
 
 </html>

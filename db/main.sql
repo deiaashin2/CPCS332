@@ -33,7 +33,6 @@ CREATE TABLE presenter (
 p_name VARCHAR(50) NOT NULL,
 pe_id INT(11), 
 pe_email VARCHAR(50),
-PRIMARY KEY (p_name),
 FOREIGN KEY (pe_id) REFERENCES event_(e_id),
 FOREIGN KEY (pe_email) REFERENCES user_ (e_mail) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -42,7 +41,6 @@ CREATE TABLE key_note_speaker (
 k_name VARCHAR(50) NOT NULL,
 ke_id INT(11), 
 ke_email VARCHAR(50),
-PRIMARY KEY (k_name),
 FOREIGN KEY (ke_id) REFERENCES event_(e_id),
 FOREIGN KEY (ke_email) REFERENCES user_ (e_mail) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -51,7 +49,6 @@ CREATE TABLE sponsor (
 company_name varchar(50) NOT NULL,
 se_id int(11) DEFAULT NULL,
 se_email varchar(50) DEFAULT NULL,
-PRIMARY KEY(se_id),
 FOREIGN KEY (se_id) REFERENCES event_ (e_id),
 FOREIGN KEY (se_email) REFERENCES user_ (e_mail) ON DELETE CASCADE ON UPDATE CASCADE
 );

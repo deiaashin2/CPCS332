@@ -51,7 +51,7 @@
     <!-- Your HTML content -->
     <h1>Big Events</h1>
     <p>This is a table of events with more than 100 attendees.</p>
-    <form action="../home.html">
+    <form action="../index.html">
     <button class="../goback">Go back</button>
     <h1></h1>
     </form>

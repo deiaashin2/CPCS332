@@ -22,7 +22,7 @@
 
     $mysqli = new mysqli(DB_SERVER, DB_USER, DB_PWD, DB_NAME);
 
-    $query = "SELECT e_name, description, max_capacity, address, e_type, s_date_time, e_date_time FROM event_ WHERE e_creator = '$email' AND canceled ='1'";
+    $query = "SELECT e_id, e_name, description, max_capacity, address, e_type, s_date_time, e_date_time FROM event_ WHERE e_creator = '$email' AND canceled ='1'";
     if ($result = $mysqli->query($query)) {
 
         /* Collects headers into an array */
@@ -34,6 +34,7 @@
         while ($row = $result->fetch_assoc()) {
 
             $rows[] = array(
+                'e_id' => $row["e_id"],
                 'e_name' => $row["e_name"],
                 'description' => $row["description"],
                 'max_capacity' => $row["max_capacity"],
@@ -41,7 +42,6 @@
                 'e_type' => $row["e_type"],
                 's_date_time' => $row["s_date_time"],
                 'e_date_time' => $row["e_date_time"],
-                'num_rows' => $row["num_rows"],
             );
         }
 
@@ -52,7 +52,7 @@
 
     <!-- Your HTML content -->
     <h1>Events Created</h1>
-    <form action="../home.html">
+    <form action="../updateventpage.html">
     <button class="goback">Go back</button>
     <h1></h1>
     </form>
@@ -96,7 +96,7 @@
 
         function myFunction(event) {
             console.log('event', event.currentTarget.dataset.id);
-            document.getElementById("demo").innerHTML = "Hello World";
+            document.getElementById("demo").innerHTML = "";
 
             /*** POST to PHP file that adds attendee to event ***/
             const eventId = event.currentTarget.dataset.id;
